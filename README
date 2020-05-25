@@ -1,8 +1,8 @@
-# Experiments for "Twisted-PHS: Using the Product Formula to Solve Approx-SVP in Ideal Lattices"
-# -------------------------------------------------------------------------------------------------
+"Twisted-PHS: Using the Product Formula to Solve Approx-SVP in Ideal Lattices"
+-------------------------------------------------------------------------------------------------
 
 1. Library requirements
---------------------------------------------------
+-------------------------------------------------------------------------------------------------
 Magma    v2.24-10  (http://magma.maths.usyd.edu.au/magma/)
 SageMath v9.0      (https://www.sagemath.org/)
 fplll    v5.3.2    (https://github.com/fplll/fplll)
@@ -13,24 +13,27 @@ The codes and scripts are not guaranteed to work for other (older) versions.
 
 [NB1]   We suppose that fplll is in "/usr/local/bin/".
         For changing this, you must edit in "./src/lattice.py" the following line:
-             __FPLLL_PATH = "/usr/local/bin/";
+                 __FPLLL_PATH = "/usr/local/bin/";
 [NB2]   SageMath is significantly faster than Magma for computing class groups,
         but behaves surprisingly poorly when it comes to computing S-units.
 
 
 2. How to run
----------------------------------------------------
+-------------------------------------------------------------------------------------------------
 To run a (simple) example in QQ(zeta_23), execute:
              ./example/run_complete.sh z23 100 20
+This will run the entire computations using N=20 ideal targets of prime norm around bsz=100 bits.
 
-To run bigger examples on several fields, we advise to use the '*.sh' counter part of
-the *.sage/*.magma/*.gpl scripts described in §3, eg. (executing from 'scripts'):
-             ./lat_logsunit.sh z23 z29 z31 z37 z41 z43 z47
+[NB]    To run bigger examples on several fields, augment target sizes bsz or number N, we advise to use the
+        '*.sh' counter part of the *.sage/*.magma/*.gpl scripts described in §3, eg. for computing
+        logSunit lattices for cyclotomic fields of cond. 23/29/31/37/41/43/47 (executing from
+        'scripts' and provided the previous steps have been performed):
+                 ./lat_logsunit.sh z23 z29 z31 z37 z41 z43 z47
 [NB]    This will detach one thread per field and log in '../logs'.
 
 
 3. Computational Roadmap
----------------------------------------------------
+-------------------------------------------------------------------------------------------------
 Computations chain for:
     field <nf> (see 4.b for the used number field labelling).
     challenge prime norm bit size <bsz>
@@ -75,7 +78,7 @@ f. Solve Approx-idSVP (Takes some time)
 
 
 4. Organization details
----------------------------------------------------
+-------------------------------------------------------------------------------------------------
 a. Folders
   ./src      contains Python modules for twphs_algo / number_field / lattice / floating point routines.
   ./scripts  contains the computation scripts.

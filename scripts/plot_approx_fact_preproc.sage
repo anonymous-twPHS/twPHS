@@ -61,7 +61,7 @@ for m in cyclo_fields:
 
     _tw_moy  = mean(_tw_rat);
     _opt_moy = mean(_opt_rat);
-    _phs_moy = mean([_f for _f in _phs_rat if _f < 10^13]);
+    _phs_moy = mean([_f for _f in _phs_rat]);
 
     # All ratios
     for _k in range(len(_exact)):
@@ -91,7 +91,7 @@ for m in ntru_fields:
 
     _tw_moy  = mean(_tw_rat);
     _opt_moy = mean(_opt_rat);
-    _phs_moy = mean([_f for _f in _phs_rat if _f < 10^13]);
+    _phs_moy = mean([_f for _f in _phs_rat]);
 
     # All ratios
     for _k in range(len(_exact)):
