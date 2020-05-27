@@ -47,8 +47,8 @@ def read_data(filename): # read by columns
 # g = Graphics();
 _moy_file = data_dir + "cyclo.solmoy"
 _moy = open(_moy_file, "w");
-_rat_file = data_dir + "cyclo.solrat".format(tag);
-_rat = open(_out_file, "w");
+_rat_file = data_dir + "cyclo.solrat";
+_rat = open(_rat_file, "w");
 for m in cyclo_fields:
     tag = "z{}".format(m);
     K = nf_set_tag(tag);
@@ -65,7 +65,7 @@ for m in cyclo_fields:
 
     # All ratios
     for _k in range(len(_exact)):
-        _out.write("{} {:7.3f} {:7.3f} {:7.3f}\n".format(K.degree(),float(_tw_rat[_k]),float(_opt_rat[_k]),float(_phs_rat[_k])));
+        _rat.write("{} {:7.3f} {:7.3f} {:7.3f}\n".format(K.degree(),float(_tw_rat[_k]),float(_opt_rat[_k]),float(_phs_rat[_k])));
     # Mean
     _moy.write("{} {} {} {}\n".format(K.degree(), *[RealField(100)(_f) for _f in [_tw_moy,_opt_moy,_phs_moy]]));
 
@@ -77,8 +77,8 @@ _rat.close();
 # Same for NTRU
 _moy_file = data_dir + "ntru.solmoy";
 _moy = open(_moy_file, "w");
-_rat_file = data_dir + "ntru.solrat".format(tag);
-_rat = open(_out_file, "w");
+_rat_file = data_dir + "ntru.solrat";
+_rat = open(_rat_file, "w");
 for m in ntru_fields:
     tag = "n{}".format(m);
     K = nf_set_tag(tag);
